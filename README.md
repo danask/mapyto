@@ -1,12 +1,52 @@
-# MaPyto:earth_africa: by *s0rcy_r*
+# The MaPyto Project (by *s0rcy_r*)
 
-![](https://repository-images.githubusercontent.com/240898061/ab6b7500-51b8-11ea-811e-afd0fa5acb92)
+![GitHub last commit](https://img.shields.io/github/last-commit/s0rcy-r/mapyto?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/s0rcy-r/mapyto?style=for-the-badge)
+![Lines of code](https://img.shields.io/tokei/lines/github/s0rcy-r/mapyto?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/s0rcy-r/mapyto?style=for-the-badge)
 
-**MaPyto:earth_africa:** is a program that takes addresses as input and shows an "*optimized*" route on Google Map.
+## Description
+
+**MaPyto:earth_africa:** is a python program that takes multiple addresses as input and shows in output an "*optimized*" route on Google Map (without the maximum of 10 steps allowed by Google).
+This program works in Python 3.9 with Django and geopy (+ Nominatim).
 
 ### How does it works ?
 
-To do this, my program will sort the addresses step by step (that is, it will calculate the distances between the first address and the others, return the first adress in another list and place the nearest adress beginning of the original list, repeating until the original list is empty).
+It works most of the times so don't ask questions ...
+Well, in fact the main API sort the addresses step by step taking into account the distance between each place. This methodology doesn't work each time, but based on my multiple tests, it came out that 80% of the results are correct,
+18% only have a misplaced address and only 2% are incorrect.
 
-## If you want to try it out, just launch main.py !
-## Come follow me on Twitter : [@s0rcy_r](https://www.twitter.com/s0rcy_r) :bird:
+## Installation
+Only one thing to do :
+```pip install -r requirements.txt```
+
+## Usage
+
+### Django usage
+```
+cd mapyto
+python runserver.py <ip>:<port>
+```
+
+*example :*
+```
+cd mapyto
+python runserver.py 0.0.0.0:8080
+```
+
+### API usage
+For more informations about the API, go see the full documentation in the API folder.
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+## Social
+
+![Twitter Follow](https://img.shields.io/twitter/follow/s0rcy_r?style=social)
+![GitHub followers](https://img.shields.io/github/followers/s0rcy-r?label=Follow%20me&style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/s0rcy-r/mapyto?style=social)
