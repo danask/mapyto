@@ -142,7 +142,3 @@ class Mapyto:
             webbrowser.open(url_end)
         else:
             self.url = url_end
-
-
-if __name__ == "__main__":
-    mp = Mapyto(["Paris", "Berlin", "Amsterdam", "Oslo", "Bruxelles", "Cologne", "Hambourg", "Varsovie", "Helsinki"])
