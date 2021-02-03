@@ -22,35 +22,49 @@
 
         <div class="bg-light m-5 p-5 rounded">
 
-            <form method="POST">
+                {% if rows %}
+                    <form method="POST">{% csrf_token %}
 
-                <label style="font-family: 'Potta One', cursive;" class="text-center">
-                    Please, indicate your list of adresse as follows :<span style="text-decoration: underline;">"Street name, CITY"</span>
-                    <span style="font-style: italic;">(put the adress where you are in the first position)</span>
-                </label>
-
-                {% csrf_token %}
-
-                <table class="table">
-                    <tbody>
-                    {% for i in rows %}
-                        {% if i == 0 %}
-                            <tr><td><input type="text" name="{{ i }}" placeholder="Your departure address" class="form-control"></td></tr>
-                        {% else %}
-                            <tr><td><input type="text" name="{{ i }}" placeholder="Adress n°{{ i }}" class="form-control"></td></tr>
+                        {% if error %}
+                            <div class="alert alert-danger" role="alert">
+                                MaPyto find errors in your inputs, please check your adresses.
+                            </div>
                         {% endif %}
 
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        <label style="font-family: 'Potta One', cursive;" class="text-center">
+                            Please, indicate your list of adresse as follows :<span style="text-decoration: underline;">"Street name, CITY"</span>
+                            <span style="font-style: italic;">(put the adress where you are in the first position)</span>
+                        </label>
 
-                <div id="align">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                        <table class="table">
+                            <tbody>
+                            {% for i in rows %}
+                                {% if i == 0 %}
+                                    <tr><td><input type="text" name="{{ i }}" placeholder="Your departure address" class="form-control"></td></tr>
+                                {% else %}
+                                    <tr><td><input type="text" name="{{ i }}" placeholder="Adress n°{{ i }}" class="form-control"></td></tr>
+                                {% endif %}
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <div id="align">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                {% endif %}
+
+
+
+            {% if url %}
+                <div class="alert alert-success" role="alert">
+                    Here is your URL => <a href="{{ url }}" class="alert-link">CLICK HERE</a>
                 </div>
+                <a class="btn btn-primary" href="/">Go back</a>
+            {% endif %}
 
-            </form>
         </div>
-
     </body>
 
     <footer class="container text-center">

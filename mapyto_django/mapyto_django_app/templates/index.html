@@ -21,6 +21,13 @@
         </header>
 
         <div class="bg-light m-5 p-5 rounded">
+
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    Please enter a number greater than or equal to 3 (and not text).
+                </div>
+            {% endif %}
+
             <form method="post"> {% csrf_token %}
                 <div class="form-group">
                     <label style="font-family: 'Potta One', cursive;">Please, indicate the number of adresses you wish to enter (and optimized) :</label>
