@@ -25,15 +25,10 @@ Only one thing to do :
 ## Usage
 
 ### Django usage
-```
-cd mapyto
-python runserver.py <ip>:<port>
-```
 
-*example :*
 ```
 cd mapyto
-python runserver.py 0.0.0.0:8080
+python runserver.py
 ```
 
 ### API usage

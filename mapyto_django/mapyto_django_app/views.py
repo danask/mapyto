@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .mapyto_api import Mapyto
 
+
 #Index view
 def index(request):
     #Handle the form
