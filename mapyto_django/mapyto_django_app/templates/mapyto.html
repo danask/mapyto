@@ -12,9 +12,32 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+        <script>
+            var i = 1;
+            var liste;
+            window.onload = function(){
+                liste = document.getElementById("table");
+            }
+
+            function add(){
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                var text = document.createElement("input");
+                text.type = "text";
+                text.name = "adress_" + i;
+                text.placeholder = "Adress n°" + i;
+                text.classList.add("form-control");
+                td.appendChild(text);
+                tr.appendChild(td);
+                liste.appendChild(tr);
+                i++;
+
+                document.getElementById("numb").value = i;
+            }
+        </script>
     </head>
 
-    <body class="container bg-dark pr-5 pl-5">
+    <body class="bg-dark pr-5 pl-5">
         <header class="pt-1 pr-5 pl-5">
             <h1 class="text-light text-center" style="font-size: 150px; font-family: 'Potta One', cursive;">
                 MaPyto<span style="color: orange;">.</span></h1>
@@ -22,8 +45,7 @@
 
         <div class="bg-light m-5 p-5 rounded">
 
-                {% if rows %}
-                    <form method="POST">{% csrf_token %}
+            <form method="POST" id="form">{% csrf_token %}
 
                         {% if error %}
                             <div class="alert alert-danger" role="alert">
@@ -37,24 +59,25 @@
                         </label>
 
                         <table class="table">
-                            <tbody>
-                            {% for i in rows %}
-                                {% if i == 0 %}
-                                    <tr><td><input type="text" name="{{ i }}" placeholder="Your departure address" class="form-control"></td></tr>
-                                {% else %}
-                                    <tr><td><input type="text" name="{{ i }}" placeholder="Adress n°{{ i }}" class="form-control"></td></tr>
+                            <tbody id="table">
+                                <input id="numb" name="numb" hidden>
+                                <tr><td><input type="text" name="adress_0" placeholder="Your departure address" class="form-control"></td></tr>
+                                {% if rows %}
+                                    {% for i in rows %}
+                                        <tr><td><input type="text" name="adress_{{ i }}" placeholder="Adress n°{{ i }}" class="form-control"></td></tr>
+                                    {% endfor %}
+                                        <script>var i = {{ index }};</script>
                                 {% endif %}
 
-                            {% endfor %}
                             </tbody>
                         </table>
 
                         <div id="align">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-                    </form>
-                {% endif %}
+                    </form><br>
 
+            <button class="btn btn-danger position-absolute start-50 translate-middle" onclick="add()">+</button>
 
 
             {% if url %}

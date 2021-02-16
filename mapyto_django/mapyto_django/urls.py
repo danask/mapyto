@@ -16,9 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from mapyto_django_app.views import index, mapyto_api
+from mapyto_django_app.views import mapyto_api
 
 urlpatterns = [
-    path('', index),
-    path('mapyto&rows=<int:rows>/', mapyto_api)
+    path('', mapyto_api),
 ]
