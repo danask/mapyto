@@ -1,4 +1,6 @@
-# The MaPyto Project | by s0rcy_r『魔女』
+![MaPyto Logo](https://github.com/s0rcy-r/mapyto/blob/main/logo.PNG?raw=true)
+
+# MaPyto | by s0rcy_r『魔女』
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/s0rcy-r/mapyto?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/s0rcy-r/mapyto?style=for-the-badge)
@@ -10,13 +12,13 @@
 ## Description
 
 **MaPyto:earth_africa:** is a python program that takes multiple addresses as input and shows in output an "*optimized*" route on Google Map (without the maximum of 10 steps allowed by Google).
-This program works in Python 3.9 with Django and geopy (+ Nominatim).
+This program works with Python 3.9, Django and geopy (+ Nominatim).
 
 ### How does it works ?
 
 It works most of the times so don't ask questions ...
 Well, in fact the main API sort the addresses step by step taking into account the distance between each place. This methodology doesn't work each time, but based on my multiple tests, it came out that 80% of the results are correct,
-18% only have a misplaced address and only 2% are incorrect.
+18% only have one misplaced address and only 2% are totally incorrect.
 
 ## Installation
 Only one thing to do :
@@ -32,7 +34,7 @@ python runserver.py
 ```
 
 ### API usage
-For more informations about the API, go see the full documentation in the API folder.
+For more information about the API, go see the (light) documentation in the API folder.
 
 ## Contributing
 
