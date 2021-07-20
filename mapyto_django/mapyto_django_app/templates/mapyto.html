@@ -38,7 +38,7 @@
 
                 var text = document.createElement("input");
                 text.type = "text";
-                text.name = "adress_" + i;
+                text.name = "address_" + i;
                 text.placeholder = "Address n°" + i;
                 text.classList.add("form-control");
                 text.classList.add("form-control-lg");
@@ -79,6 +79,13 @@
                 $(tr).hide("slow");
                 setTimeout(function() { tr.remove(); }, 500);
             }
+
+            function del_error(id){
+                tr = document.getElementById(id);
+                $(tr).hide("slow");
+                setTimeout(function() { tr.remove(); }, 500);
+                i--;
+            }
         </script>
     </head>
 
@@ -110,16 +117,43 @@
                         <table class="table">
                             <tbody id="table">
                                 <input id="numb" name="numb" hidden>
-                                <tr id="0">
-                                    <td class="input-group input-group-lg">
-                                        <input type="text" name="adress_0" placeholder="Your departure address" class="form-control form-control-lg">
-                                        <div class="input-group-append">
-                                            <a class="btn btn-secondary p-3">
-                                                <i class="fas fa-map-marker-alt" style="font-size : 1.55em"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+
+
+                                {% if error %}
+                                    <script>var i = {{ i }};</script>
+                                    {% for i, j in content %}
+                                        <tr id="{{ j }}">
+                                            <td class="input-group input-group-lg">
+                                                <input type="text" name="address_0" value="{{ i }}" class="form-control form-control-lg">
+                                                {% if j > 0 %}
+                                                    <div class="input-group-append">
+                                                        <a class="btn btn-secondary p-3">
+                                                            <i class="fas fa-times-circle" style="font-size : 1.4em" onclick="del_error({{ j }})"></i>
+                                                        </a>
+                                                    </div>
+                                                {% else %}
+                                                    <div class="input-group-append">
+                                                        <a class="btn btn-secondary p-3">
+                                                            <i class="fas fa-map-marker-alt" style="font-size : 1.55em"></i>
+                                                        </a>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                {% else %}
+                                    <tr id="0">
+                                        <td class="input-group input-group-lg">
+                                            <input type="text" name="address_0" placeholder="Your departure address" class="form-control form-control-lg">
+                                            <div class="input-group-append">
+                                                <a class="btn btn-secondary p-3">
+                                                    <i class="fas fa-map-marker-alt" style="font-size : 1.55em"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
                             </tbody>
                         </table>
 
@@ -136,11 +170,10 @@
 
             {% if url %}
                 <div class="alert shadow-lg text-center" role="alert" style="background-color: #8AA895; font-family: 'Quicksand', sans-serif; font-weight: bold;" id="url">
-                    Here is your URL => <a href="{{ url }}" class="alert-link" target="_blank">CLICK HERE</a>
+                    Here is your URL => <a href="{{ url }}" class="alert-link" target="_blank" style="text-decoration : none;"><i class="fas fa-globe-africa"></i> CLICK HERE</a>
                     <a onclick='$("#url").slideToggle("slow");' class="float-end" style="color: black;"><i class="far fa-times-circle"></i></a>
                 </div>
             {% endif %}
-
         </div>
 
     </body>

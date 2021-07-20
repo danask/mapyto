@@ -9,21 +9,21 @@ def mapyto_api(request):
 
         i = 0
         number = request.POST.get("numb")
-        adresses_list = []
+        addresses_list = []
 
         #Create a list with all of the addresses
         while i < int(number):
-            adress = request.POST.get(f"adress_{i}")
+            address = request.POST.get(f"address_{i}")
 
-            adresses_list.append(adress)
+            addresses_list.append(address)
             i += 1
 
         #Use the API and handle errors
         try:
-            mp = Mapyto(adresses_list, mode="django")
+            mp = Mapyto(addresses_list, mode="django")
         except AttributeError:
-            rows = [i for i in range(1, int(number))]
-            return render(request, "mapyto.html", context={"rows": rows, "index": len(rows)+1, "error": True})
+            addresses_list = [[i,addresses_list.index(i)] for i in addresses_list]
+            return render(request, "mapyto.html", context={"content": addresses_list, "i": len(addresses_list), "error": True})
 
         #Send the URL to the page
         return render(request, "mapyto.html", context={"url": mp.url})
