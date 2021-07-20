@@ -1,6 +1,6 @@
-![MaPyto Logo](https://github.com/s0rcy-r/mapyto/blob/main/logo.PNG?raw=true)
-
 # MaPyto | by s0rcy_r『魔女』
+
+![MaPyto Logo](https://github.com/s0rcy-r/mapyto/blob/main/Logo.PNG?raw=true)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/s0rcy-r/mapyto?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/s0rcy-r/mapyto?style=for-the-badge)
