@@ -114,6 +114,11 @@
                                 You should put at least two addresses.
                                 <a onclick='$("#error").slideToggle("slow");' class="float-end" style="color: black;"><i class="far fa-times-circle"></i></a>
                             </div>
+                        {% elif error_type == "AddressError" %}
+                            <div class="alert alert-danger" role="alert" id="error">
+                                MaPyto have an error with this address : {{ error_content }}
+                                <a onclick='$("#error").slideToggle("slow");' class="float-end" style="color: black;"><i class="far fa-times-circle"></i></a>
+                            </div>
                         {% endif %}
 
                         <p style="font-family: 'Quicksand', sans-serif; font-size: 1.5em" class="text-center">
@@ -127,12 +132,12 @@
                                 <input id="numb" name="numb" hidden>
 
 
-                                {% if error_type == "Mapyto" %}
+                                {% if error_type == "Mapyto" or error_type == "AddressError" %}
                                     <script>var i = {{ i }};</script>
                                     {% for i, j in content %}
                                         <tr id="{{ j }}">
                                             <td class="input-group input-group-lg">
-                                                <input type="text" name="address_0" value="{{ i }}" class="form-control form-control-lg">
+                                                <input type="text" name="address_{{ j }}" value="{{ i }}" class="form-control form-control-lg">
                                                 {% if j > 0 %}
                                                     <div class="input-group-append">
                                                         <a class="btn btn-secondary p-3">

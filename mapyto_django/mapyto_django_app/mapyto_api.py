@@ -10,6 +10,7 @@ class Mapyto:
     def __init__(self, lst=["none"], mode=""):
         self.coordinates_list = []
         self.url = ""
+        self.error = None
 
         self.main(lst, mode)
 
@@ -47,6 +48,9 @@ class Mapyto:
             #Get coordinates
             geolocator = Nominatim(user_agent=key, timeout=3)
             location = geolocator.geocode(adress)
+
+            if location == None:
+                return adress
 
             #Update the coordinates list
             self.coordinates_list.append([location.latitude, location.longitude])
@@ -152,7 +156,11 @@ class Mapyto:
             adresses_list = lst
 
         #Get the coordinates of the addresses list
-        self.get_coordinates(adresses_list)
+        error = self.get_coordinates(adresses_list)
+
+        if error != None:
+            self.error = error
+            return False
 
         #Sort the coordinates
         sorted_coordinates = self.sort_addresses()

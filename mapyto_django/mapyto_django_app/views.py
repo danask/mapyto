@@ -29,8 +29,12 @@ def mapyto_api(request):
             addresses_list = [[i,addresses_list.index(i)] for i in addresses_list]
             return render(request, "mapyto.html", context={"content": addresses_list, "i": len(addresses_list), "error_type": "MaPyto"})
 
-        #Send the URL to the page
-        return render(request, "mapyto.html", context={"url": mp.url})
+        if mp.error != None:
+            addresses_list = [[i,addresses_list.index(i)] for i in addresses_list]
+            return render(request, "mapyto.html", context={"content": addresses_list, "i": len(addresses_list), "error_type": "AddressError", "error_content": mp.error})
+        else:
+            #Send the URL to the page
+            return render(request, "mapyto.html", context={"url": mp.url})
 
     #Basic render
     else:
