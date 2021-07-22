@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2699afe-4154-4104-be12-bb35e16899a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mapyto_django/mapyto_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapyto_django/mapyto_django/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mapyto_django/mapyto_django_app/templates/mapyto.html" beforeDir="false" afterPath="$PROJECT_DIR$/mapyto_django/mapyto_django_app/templates/mapyto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mapyto_django/mapyto_django_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mapyto_django/mapyto_django_app/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vXUrjbg1kpRWFurzFKmHqIhun0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Files\git\mapyto\images" />
+      <recent name="D:\Files\git\mapyto" />
+      <recent name="D:\Files\git\mapyto\mapyto_django\mapyto_django_app\static\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Files\git\mapyto\images" />
+      <recent name="D:\Files\git\mapyto\mapyto_django\mapyto_django_app\static" />
+      <recent name="D:\Files\git\mapyto\mapyto_django\mapyto_django_app\static\css\webfonts" />
+      <recent name="D:\Files\git\mapyto\mapyto_django\mapyto_django_app\static\css" />
+      <recent name="D:\Files\git\mapyto\mapyto_django\mapyto_django_app\static\js" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2699afe-4154-4104-be12-bb35e16899a3" name="Default Changelist" comment="" />
+      <created>1626708131139</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626708131139</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mapyto_django/mapyto_django/urls.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

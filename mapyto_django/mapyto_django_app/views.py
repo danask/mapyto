@@ -11,6 +11,9 @@ def mapyto_api(request):
         number = request.POST.get("numb")
         addresses_list = []
 
+        if number == "1":
+            return render(request, "mapyto.html", context={"content": addresses_list, "i": len(addresses_list), "error": True})
+
         #Create a list with all of the addresses
         while i < int(number):
             address = request.POST.get(f"address_{i}")
