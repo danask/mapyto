@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .mapyto_api import Mapyto
 
 
@@ -11,8 +11,9 @@ def mapyto_api(request):
         number = request.POST.get("numb")
         addresses_list = []
 
+        #Check the number of inputs
         if number == "1":
-            return render(request, "mapyto.html", context={"content": addresses_list, "i": len(addresses_list), "error": True})
+            return render(request, "mapyto.html", context={"error_type": "Address"})
 
         #Create a list with all of the addresses
         while i < int(number):
@@ -26,7 +27,7 @@ def mapyto_api(request):
             mp = Mapyto(addresses_list, mode="django")
         except AttributeError:
             addresses_list = [[i,addresses_list.index(i)] for i in addresses_list]
-            return render(request, "mapyto.html", context={"content": addresses_list, "i": len(addresses_list), "error": True})
+            return render(request, "mapyto.html", context={"content": addresses_list, "i": len(addresses_list), "error_type": "MaPyto"})
 
         #Send the URL to the page
         return render(request, "mapyto.html", context={"url": mp.url})
